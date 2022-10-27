@@ -6,8 +6,8 @@
   pressure at the oulet Pa;
   molecular diffusion mm^2/s;
   time step;
-  Initial condition, mol/mm^3, 1M= 10^-6 mol/mm^3
-  Inlet condition, mol/mm^3
+  Initial condition, mol/mm^3, 0
+  Inlet condition, mol/mm^3,1
 3. Run Data_gen.exe in 0Data
 4. Login CSF3
 5. qrsh -l v100 bash
