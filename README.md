@@ -5,6 +5,7 @@
   pressure at the inlet Pa;
   pressure at the oulet Pa;
   molecular diffusion mm^2/s;
+  Kpa;
   time step;
   Initial condition, mol/mm^3, 0
   Inlet condition, mol/mm^3,1
