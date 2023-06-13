@@ -85,17 +85,17 @@ void setup()
 
 	//-----------------------------------------------------------
 	//initialize the consentration
-	Cons = new double [PE + 2];
+	Cons = new double [PE + 3];
 	for(i = 0; i < PE; i++)
     {
-        Cons[i] = A0;
+        Cons[i] = 0.0;
     }
     for(i = 0; i < TP; i++)
     {
-        Cons[i] = Ai;
+        Cons[i] = 1.0;
     }
-	Cons[PE] = Ai;//inlet
-	Cons[PE + 1] = A0; //outlet}
+	Cons[PE + 1] = 1.0;//inlet
+	Cons[PE + 2] = 0.0; //outlet}
 
 	// for continue
 	/*sprintf(filename, "Concentration_203235701.txt");

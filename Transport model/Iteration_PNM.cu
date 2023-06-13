@@ -26,7 +26,7 @@ __global__ void deltaCons_calculation(int NY, int *D_CoordMat, int *D_CoordMat_s
 		{
 		    DCterm = DCterm + fluxterm * C2term;
 		}
-		if (fluxterm < 0)
+		if (fluxterm <= 0)
 		{
 		    DCterm = DCterm + fluxterm * C1term;
 		}
@@ -102,11 +102,9 @@ void Iteration()
 {   
     deltaCons_calculation << <gridSize, blockSize >> >(NY, D_CoordMat, D_CoordMat_sum, D_Prr, D_Flux, D_deltaCons, D_Cons, D_Trans);
 	cudaDeviceSynchronize();
-    cudaThreadSynchronize();
 
 	Mintime_calculation << <gridSize, blockSize >> >(NY, D_deltaCons, D_Volume, D_mintime, D_Cons);
 	cudaDeviceSynchronize();
-    cudaThreadSynchronize();
 
     cublasHandle_t handle;
 	cublasCreate(&handle);
@@ -123,5 +121,4 @@ void Iteration()
 
 	C_calculation << <gridSize, blockSize >> >( d_minindex, NY, D_Cons, D_deltaCons, D_mintime);
 	cudaDeviceSynchronize();
-    cudaThreadSynchronize();
 }

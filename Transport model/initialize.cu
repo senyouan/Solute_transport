@@ -13,7 +13,7 @@ cudaError_t Init_PNM()       // allocate space in GPU
     cudaStatus = cudaMalloc((void**)&D_Prr, TF * sizeof(int));
 	cudaStatus = cudaMalloc((void**)&D_Flux, TF * sizeof(double));// nozero * sizeof(double));
 	cudaStatus = cudaMalloc((void**)&D_Trans, TF * sizeof(double));
-	cudaStatus = cudaMalloc((void**)&D_Cons, (PE + 2) * sizeof(double));
+	cudaStatus = cudaMalloc((void**)&D_Cons, (PE + 3) * sizeof(double));
 	cudaStatus = cudaMalloc((void**)&D_Volume, PE * sizeof(double));
 	cudaStatus = cudaMalloc((void**)&D_mintime, PE * sizeof(double));
 	cudaStatus = cudaMalloc((void**)&D_deltaCons, PE * sizeof(double));
@@ -26,7 +26,7 @@ cudaError_t Init_PNM()       // allocate space in GPU
 	cudaStatus = cudaMemcpy(D_Prr, Prr.data(), TF * sizeof(int), cudaMemcpyHostToDevice);
 	cudaStatus = cudaMemcpy(D_Flux, Flux.data(), TF * sizeof(double), cudaMemcpyHostToDevice);
 	cudaStatus = cudaMemcpy(D_Trans, Trans.data(), TF * sizeof(double), cudaMemcpyHostToDevice);
-	cudaStatus = cudaMemcpy(D_Cons, Cons, (PE + 2) * sizeof(double), cudaMemcpyHostToDevice);
+	cudaStatus = cudaMemcpy(D_Cons, Cons, (PE + 3) * sizeof(double), cudaMemcpyHostToDevice);
 	cudaStatus = cudaMemcpy(D_Volume, Volume.data(), PE * sizeof(double), cudaMemcpyHostToDevice);
 	cudaStatus = cudaMemcpy(D_CoordMat, CoordMat.data(), PE * sizeof(int), cudaMemcpyHostToDevice);
 	cudaStatus = cudaMemcpy(D_CoordMat_sum, CoordMat_sum.data(), PE * sizeof(int), cudaMemcpyHostToDevice);

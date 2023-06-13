@@ -13,8 +13,8 @@
 
 using namespace std;
 
-#define  NX      128       // the size ofcalculation******************************************
-#define  NZ      128      // the size of calculation********************************************
+#define  NX      64       // the size ofcalculation******************************************
+#define  NZ      64      // the size of calculation********************************************
 //#define  NZ      64     //  unknown should less than 64, we can set it 1******************************************
 
 //#define  PE      58500   //pore

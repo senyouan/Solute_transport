@@ -5,7 +5,7 @@ cudaError_t Output_PNM() // Copy GPU data to CPU
 	cudaError_t cudaStatus = cudaSuccess;
 	cudaStatus = cudaSetDevice(0);
 
-    cudaStatus = cudaMemcpy(Cons, D_Cons, (PE + 2) * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaStatus = cudaMemcpy(Cons, D_Cons, (PE + 3) * sizeof(double), cudaMemcpyDeviceToHost);
 	//cudaStatus = cudaMemcpy(Cons, D_deltaCons, (PE) * sizeof(double), cudaMemcpyDeviceToHost);
 
 	if (cudaStatus != cudaSuccess)
